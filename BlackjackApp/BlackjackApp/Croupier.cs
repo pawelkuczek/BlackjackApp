@@ -10,8 +10,8 @@ namespace BlackjackApp
         {
             var random = new Random();
             var ShuffledCards = new List<Card>();
-            var listcCount = cards.Count;
-            for (int i = 0; i < listcCount; i++)
+            var cardsCount = cards.Count;
+            for (int i = 0; i < cardsCount; i++)
             {
                 var randomElementInList = random.Next(0, cards.Count);
                 ShuffledCards.Add(cards[randomElementInList]);
