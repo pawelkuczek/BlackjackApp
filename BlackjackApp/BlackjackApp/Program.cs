@@ -12,6 +12,7 @@ foreach (var shuffledCard in shuffledCards)
     Console.WriteLine($"{shuffledCard.Value} - {shuffledCard.Color}");
 }
 
+Console.WriteLine(shuffledCards.Count );
 //foreach (var card in deck.cards)
 //{
 //    Console.WriteLine($"{card.Value} - {card.Color}");
