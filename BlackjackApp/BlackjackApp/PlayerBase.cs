@@ -41,7 +41,11 @@
         public abstract void Pass();
 
 
-        public abstract void TakeCard();
+        public  void TakeCard(List<Card> shuffledCards, List<Card> cards)
+        {
+            cards.Add(shuffledCards[0]);
+            shuffledCards.RemoveAt(0);
+        }
 
     }
 }
