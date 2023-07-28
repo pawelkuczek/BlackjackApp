@@ -32,15 +32,5 @@ namespace BlackjackApp
             shuffledCards.RemoveAt(0);
 
         }
-        //public  void CalculatePoints()
-        //{
-        //    throw new NotImplementedException();
-        //}
-
-        public override void Pass()
-        {
-            throw new NotImplementedException();
-        }
-
     }
 }

@@ -38,13 +38,12 @@
         }
 
 
-        public abstract void Pass();
 
-
-        public  void TakeCard(List<Card> shuffledCards, List<Card> cards)
+        public void TakeCard(List<Card> shuffledCards, List<Card> cards)
         {
             cards.Add(shuffledCards[0]);
             shuffledCards.RemoveAt(0);
+     
         }
 
     }
