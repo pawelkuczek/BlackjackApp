@@ -59,5 +59,26 @@
             Assert.AreEqual(13, countTrefl.Count);
             Assert.AreEqual(13, countPik.Count);
         }
+
+        [Test]
+        public void WhenTakeTwoCardsForPlayerAndCroupierCalled_ShouldReturnCorrectCount()
+        {
+            //arrange
+            var deck = new Deck();
+            var croupier = new Croupier("Croupier");
+            var player = new Player("Paweł");
+            var croupierCards = croupier.playerCards;
+            var playerCards = player.playerCards;
+
+            //act
+            deck.CreateDeckOfCards();
+            var shuffledCards = croupier.ShuffleCards(deck.cards);
+            croupier.TakeTwoCardsForPlayerAndCroupier(shuffledCards, croupierCards, playerCards);
+
+            //assert
+            Assert.AreEqual(48, shuffledCards.Count);
+            Assert.AreEqual(2, croupierCards.Count);
+            Assert.AreEqual(2, playerCards.Count);
+        }
     }
 }
