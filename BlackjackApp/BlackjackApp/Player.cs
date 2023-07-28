@@ -4,10 +4,10 @@
     {
         public Player(string name) : base (name) {}
       
-        public override void CalculatePoints()
-        {
-            throw new NotImplementedException();
-        }
+        //public override void CalculatePoints()
+        //{
+        //    throw new NotImplementedException();
+        //}
 
         public override void Pass()
         {

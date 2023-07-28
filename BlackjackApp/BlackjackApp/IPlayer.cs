@@ -8,7 +8,7 @@
         void TakeCard();
 
         void Pass();
-        void CalculatePoints();
+        int CalculatePoints(List<Card> playerCards);
 
     }
 }

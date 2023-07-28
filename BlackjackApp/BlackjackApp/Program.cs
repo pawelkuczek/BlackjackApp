@@ -23,4 +23,6 @@ foreach (var card in croupierCards)
     Console.WriteLine($"{card.Value} - {card.Color}");
 }
 
-Console.WriteLine(shuffledCards.Count);
+var croupierPoints = croupier.CalculatePoints(croupierCards);
+
+Console.WriteLine(croupierPoints);
