@@ -5,17 +5,22 @@ var deck = new Deck();
 deck.CreateDeckOfCards();
 
 var croupier = new Croupier("Croupier");
+var player = new Player("Paweł");
 var shuffledCards = croupier.ShuffleCards(deck.cards);
 
-foreach (var shuffledCard in shuffledCards)
+var croupierCards = croupier.playerCards;
+var playerCards = player.playerCards;
+
+croupier.TakeTwoCardsForPlayerAndCroupier(shuffledCards, croupierCards, playerCards);
+
+foreach (var card in playerCards)
 {
-    Console.WriteLine($"{shuffledCard.Value} - {shuffledCard.Color}");
+    Console.WriteLine($"{card.Value} - {card.Color}");
 }
 
-Console.WriteLine(shuffledCards.Count );
-//foreach (var card in deck.cards)
-//{
-//    Console.WriteLine($"{card.Value} - {card.Color}");
-//}
+foreach (var card in croupierCards)
+{
+    Console.WriteLine($"{card.Value} - {card.Color}");
+}
 
-
+Console.WriteLine(shuffledCards.Count);

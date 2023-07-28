@@ -20,6 +20,18 @@ namespace BlackjackApp
             return ShuffledCards;
         }
 
+        public void TakeTwoCardsForPlayerAndCroupier(List<Card> shuffledCards, List<Card> croupierCards, List<Card> playerCards)
+        {
+            croupierCards.Add(shuffledCards[0]);
+            shuffledCards.RemoveAt(0);
+            playerCards.Add(shuffledCards[0]);
+            shuffledCards.RemoveAt(0);
+            croupierCards.Add(shuffledCards[0]);
+            shuffledCards.RemoveAt(0);
+            playerCards.Add(shuffledCards[0]);
+            shuffledCards.RemoveAt(0);
+
+        }
         public override void CalculatePoints()
         {
             throw new NotImplementedException();
