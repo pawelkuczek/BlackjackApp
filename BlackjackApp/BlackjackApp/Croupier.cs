@@ -42,9 +42,5 @@ namespace BlackjackApp
             throw new NotImplementedException();
         }
 
-        public override void TakeCard()
-        {
-            throw new NotImplementedException();
-        }
     }
 }

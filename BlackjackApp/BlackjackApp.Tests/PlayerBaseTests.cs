@@ -55,5 +55,23 @@
             //assert
             Assert.AreEqual(95, sum);
         }
+
+        [Test]
+        public void WhenTakeCard_ShouldReturnCorrectValue()
+        {
+            //arrange
+            var player = new Player("Paweł");
+            var cards1 = new List<Card>() { new Card("Karo", "10"), };
+            var cards2 = new List<Card>();
+         
+            //act
+     
+            player.TakeCard(cards1, cards2);
+
+            //assert
+            Assert.AreEqual(0, cards1.Count);
+            Assert.AreEqual(1, cards2.Count);
+            Assert.AreEqual("10", cards2[0].Value);
+        }
     }
 }
