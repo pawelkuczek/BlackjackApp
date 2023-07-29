@@ -4,45 +4,37 @@
     {
         public Player(string name) : base(name) { }
 
-        public void PlayerPlays(List<Card> shuffledCards, string playerName, List<Card> playerCards)
-
+        override public void CheckForTwoAcesWin(List<Card> playerCards, string playerName)
         {
-            Player newPlayer = new Player(playerName);
-            var playerPoints = newPlayer.CalculatePoints(playerCards);
-
-
-            while (true)
+            foreach (var card in playerCards)
             {
-                Console.WriteLine("Twoje karty:");
-
-                foreach (var card in playerCards)
+                var aces = new List<Card>();
+                if (card.Value == "As")
                 {
-                    Console.WriteLine($"{card.Value} - {card.Color}");
+                    aces.Add(card);
                 }
-                Console.WriteLine($"Punkty gracza");
-                Console.WriteLine(playerPoints);
 
-                Console.WriteLine("Wybierz: ");
-                Console.WriteLine("1 - aby dobrać kartę ");
-                Console.WriteLine("0 - aby spasować");
-                var input = Console.ReadLine();
-
-                if (input == "1")
+                if (aces.Count == 2)
                 {
-                    newPlayer.TakeCard(shuffledCards, playerCards);
-                    playerPoints = newPlayer.CalculatePoints(playerCards);
-                }
-                else if (input == "0")
-                {
+                    Console.WriteLine($"Wygrywa {playerName}. Trafiono 2 asy.");
                     break;
                 }
-                else
-                {
-                    throw new Exception("Nieprawidłowy wybór, spróbuj jeszcze raz");
-                    
-                }
-                Console.WriteLine("-----------------");
+
             }
+        }
+
+        override public void ShowWinningMessage(int playerResult,int croupierResult, string playerName, List<Card> playerCards)
+        {
+            Console.WriteLine("-----------------");
+            Console.WriteLine($"Wygrywa {playerName}");
+            Console.WriteLine("Twoje karty:");
+
+            foreach (var card in playerCards)
+            {
+                Console.WriteLine($"[{card.Value} - {card.Color}]");
+            }
+            Console.WriteLine($"Punkty {playerName}: {playerResult}");
+            Console.WriteLine($"Punkty krupiera: {croupierResult}");
         }
     }
 }

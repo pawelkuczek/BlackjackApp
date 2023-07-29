@@ -2,8 +2,8 @@
 {
     public abstract class PlayerBase : IPlayer
     {
-        public List<Card> playerCards = new List<Card>();
-
+       
+        public int playerResult = 0;
         public PlayerBase(string name)
         {
             this.Name = name;
@@ -11,32 +11,29 @@
         }
         public string Name { get; set; }
 
-        public int CalculatePoints(List<Card> playerCards)
+        public void CalculatePoints(List<Card> playerCards)
         {
-            int playerResult = 0;
-
             foreach (var card in playerCards)
             {
                 if (int.TryParse(card.Value, out int result))
                 {
-                    playerResult += result;
+                    this.playerResult += result;
                 }
                 else if (card.Value == "Walet" || card.Value == "Dama" || card.Value == "Król")
                 {
-                    playerResult += 10;
+                    this.playerResult += 10;
                 }
                 else if (card.Value == "As")
                 {
-                    playerResult += 11;
+                    this.playerResult += 11;
                 }
+
                 else
                 {
                     throw new Exception("Wrong card value");
                 }
             }
-            return playerResult;
         }
-
 
 
         public void TakeCard(List<Card> shuffledCards, List<Card> cards)
@@ -46,5 +43,7 @@
      
         }
 
+        abstract public void CheckForTwoAcesWin(List<Card> playerCards, string playerName);
+        abstract public void ShowWinningMessage(int playerResult, int croupierResult, string playerName, List<Card> playerCards);
     }
 }

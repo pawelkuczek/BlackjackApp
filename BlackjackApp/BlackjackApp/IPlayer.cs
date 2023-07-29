@@ -6,7 +6,11 @@
         string Name { get; }
 
         void TakeCard(List<Card> shuffledCards, List<Card> cards);
-        int CalculatePoints(List<Card> playerCards);
+        void CalculatePoints(List<Card> playerCards);
+
+        void CheckForTwoAcesWin(List<Card> playerCards, string playerName);
+
+        void ShowWinningMessage(int playerResult, int croupierResult, string playerName, List<Card> playerCards);
 
     }
 }
